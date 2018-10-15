@@ -27,7 +27,10 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "eslint-disable": 0,
+      "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }

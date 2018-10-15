@@ -3,7 +3,7 @@
         <h3>Sign In</h3>
         <input type="text" v-model="email" placeholder="Email"><br/>
         <input type="password" v-model="password" placeholder="Password"><br/>
-        <button @click="login">로그인</button>
+        <button @click.prevent="signIn">로그인</button>
         <p>계정이 없습니까? <router-link to="/signup">가입</router-link>이 가능합니다.</p>
     </div>
 </template>
@@ -20,12 +20,12 @@ export default {
         };
     },
     methods: {
-        login() {
+        signIn() {
             firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
-                function(user) {
-                    alert(`로그인 되었습니다.`)
+                user => {
+                    this.$router.replace('hello')
                 },
-                function(err) {
+                err => {
                     alert(`로그인실패 ${err.message}`)
                 }
             )

@@ -27,21 +27,42 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
-    <h3><router-link to="/login">로그인하기</router-link></h3>
+    <button @click.prevent="logout">로그아웃하기</button>
   </div>
 </template>
 
 <script>
+import firebase from 'firebase';
+
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
-  }
+  data(){
+      return {
+          msg: 'Welcome to Your Vue.js App'
+      };
+  },
+    methods: {
+      logout() {
+          firebase.auth().signOut().then(() => {
+              this.$router.replace('login')
+          })
+      }
+    }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    button{
+        padding:10px 20px;
+        background: #42b983;
+        color: #fff;
+        font-weight:bold;
+        border: 0;
+        border-radius: 22px;
+        outline: 0;
+        cursor: pointer;
+    }
 h3 {
   margin: 40px 0 0;
 }

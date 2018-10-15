@@ -22,10 +22,10 @@ export default {
     methods: {
         signup () {
             firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
-                function(user) {
-                    alert(`가입완료`)
+                user => {
+                    this.$router.replace(`가입완료`)
                 },
-                function(err) {
+                err => {
                     alert(`가입실패 ${err.message}`)
                 }
             );
