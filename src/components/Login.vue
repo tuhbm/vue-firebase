@@ -3,8 +3,8 @@
         <h3>Sign In</h3>
         <input type="text" placeholder="Email"><br/>
         <input type="password" placeholder="Password"><br/>
-        <button>로그인</button>
-        <p>계정이 없습니까? 가입이 가능합니다.</p>
+        <button @click="login">로그인</button>
+        <p>계정이 없습니까? <router-link to="/signup">가입</router-link>이 가능합니다.</p>
     </div>
 </template>
 
@@ -16,7 +16,11 @@ export default {
 
         };
     },
-    methods: {}
+    methods: {
+        login() {
+            this.$router.replace('hello');
+        }
+    }
 };
 </script>
 

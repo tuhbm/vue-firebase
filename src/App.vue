@@ -6,14 +6,16 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-import Login from './components/Login'
+import HelloWorld from './components/HelloWorld';
+import Login from './components/Login';
+import SignUp from './components/SignUp'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    Login
+    Login,
+    SignUp
   }
 }
 </script>
